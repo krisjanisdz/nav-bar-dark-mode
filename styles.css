@@ -25,16 +25,17 @@ div{
 body{
     height: 100vh;
     background: var(--body-color);
-    transition: var(--tran-02);
+    transition: var(--tran-05);
 }
 
 body.dark{
     --body-color: #18191a;
     --sidebar_color: #242526;
-    --primary-color: #3a3b3c;
+    --primary-color: #ccc;
     --primary-color-light: #3a3b3c;
     --toggle-color: #fff;
     --text-color: #ccc;
+
 }
 
 /*=========================================*/
@@ -62,6 +63,7 @@ body.dark{
     padding: 10px 14px;
     background: var(--sidebar_color);
     transition: var(--tran-04);
+    z-index: 100;
 }
 
 .sidebar.close{
@@ -135,7 +137,7 @@ header .image-text .header-text{
     position: absolute;
     top: 50%;
     right: -25px;
-    transform: translateY(-50%);
+    transform: translateY(-50%) rotate(0deg);
     height: 25px;
     width: 25px;
     background: var(--primary-color);
@@ -145,10 +147,17 @@ header .image-text .header-text{
     border-radius: 50%;
     color: var(--sidebar_color);
     font-size: 25px;
+    transition: var(--tran-03); 
+}
+
+.sidebar header .toggle.rotated {
+    transform: translateY(-50%) rotate(180deg); 
 }
 
 .sidebar .search-box{
     background: var(--primary-color-light);
+    border-radius: 6px;
+    transition: var(--tran-05);
 }
 
 .search-box input{
@@ -157,7 +166,11 @@ header .image-text .header-text{
     outline: none;
     border: none;
     border-radius: 6px;
+    font-size: 15px;
+    font-weight: 500;
     background: var(--primary-color-light);
+    transition: var(--tran-05);
+    color: var(--text-color);
 }
 
 .sidebar li a{
@@ -192,9 +205,8 @@ header .image-text .header-text{
     right: 0;
     border-radius: 6px;
     background: var(--primary-color-light);
+    transition: var(--tran-04);
 }
-
-
 
 .menu-bar .mode .toggle-switch{
     position: absolute;
@@ -206,6 +218,7 @@ header .image-text .header-text{
     height: 100%;
     min-width: 100px;
     cursor: pointer;
+    transition: var(--tran-05);
 }
 
 .toggle-switch .switch{
@@ -226,9 +239,30 @@ header .image-text .header-text{
     left: 5px;
     transform: translateY(-50%);
     background-color: var(--sidebar_color);
-    transition: var(--tran-03);
+    transition: var(--tran-05);
 }
 
 body.dark .switch::before{
     left: 24px;
+}
+
+.home{
+    position: relative;
+    height: 100vh;
+    left: 280px;
+    width: calc(100% - 250px);
+    background: var(--body-color);
+    transition: var(--tran-05);
+}
+
+.home .text{
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--text-color);
+    padding: 8px 40px;
+}
+
+.sidebar.close ~ .home{
+    left: 95px;
+    width: calc(100% - 100px);
 }
